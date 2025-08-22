@@ -32,7 +32,7 @@ def eur(x: Decimal) -> str:
 
 st.set_page_config(page_title="Grundsteuer-Rechner (§ 220 Abs. 2 BewG)", page_icon="📉", layout="centered")
 
-st.title("📉 Grundsteuer – Einsparungsrechner (§ 220 Abs. 2 BewG)")
+st.title("BossinCheck – Schnellcheck Grundsteuer")
 st.caption("Berechnet die Ersparnis, wenn ein **niedrigerer gemeiner Wert** (Verkehrswert) nach § 220 Abs. 2 BewG nachgewiesen wird.")
 
 with st.form("eingaben"):
