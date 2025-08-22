@@ -10,6 +10,10 @@ Hinweis: § 251 BewG wird hier bewusst nicht berücksichtigt (kein Mindestwert-C
 
 from decimal import Decimal, ROUND_HALF_UP, getcontext
 import streamlit as st
+from pathlib import Path
+
+ASSETS = Path(__file__).parent / "assets"
+LOGO = ASSETS / "bossin_logo.png"   # put your file here
 
 # Höhere Präzision für Zwischenrechnungen
 getcontext().prec = 28
@@ -32,8 +36,15 @@ def eur(x: Decimal) -> str:
 
 st.set_page_config(page_title="Grundsteuer-Rechner (§ 220 Abs. 2 BewG)", page_icon="📉", layout="centered")
 
-st.title("BossinCheck – Schnellcheck Grundsteuer")
-st.caption("Berechnet die Ersparnis, wenn ein **niedrigerer gemeiner Wert** (Verkehrswert) nach § 220 Abs. 2 BewG nachgewiesen wird.")
+# st.title("BossinCheck – Schnellcheck Grundsteuer")
+# st.caption("Berechnet die Ersparnis, wenn ein **niedrigerer gemeiner Wert** (Verkehrswert) nach § 220 Abs. 2 BewG nachgewiesen wird.")
+
+col_logo, col_title = st.columns([1, 5])
+with col_logo:
+    st.image(str(LOGO), use_column_width=True)
+with col_title:
+    st.title("BossinCheck – Schnellcheck Grundsteuer")
+    st.caption("Berechnet die Ersparnis, wenn ein **niedrigerer gemeiner Wert** …")
 
 with st.form("eingaben"):
     col1, col2 = st.columns(2)
